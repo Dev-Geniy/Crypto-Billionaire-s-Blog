@@ -1,0 +1,405 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    background-image: url('https://img.freepik.com/premium-vector/cryptocurrency-seamless-pattern-crypto-currency-background-bitcoin-ethereum-ethereum-classic-dash-litecoin-monero-nem-ripple-zcash-vector-illustration_153454-7241.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Закрепляем фон */
+    height: 100vh; /* Задаем полную высоту окна */
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 90vh; /* Задаем полную высоту окна */
+}
+
+body::before {
+    content: '';
+    position: fixed; /* Изменяем position на fixed, чтобы затемнение оставалось на месте */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Устанавливаем полную высоту вьюпорта */
+    background-color: rgba(0, 0, 0, 0.7); /* Это добавляет затемнение */
+    z-index: -1; /* Это нужно, чтобы затемнение было за контентом */
+}
+
+header {
+    background: #333;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+main {
+    flex-grow: 1; /* Заставляем основной контент занимать оставшееся место */
+    overflow-y: auto; /* Добавляем прокрутку для контента */
+    padding-bottom: 20px; /* Отступ для меню внизу */
+  
+    z-index: 1; /* Убедитесь, что z-index ниже, чем у меню */
+}
+.content {
+    display: none; /* Скрываем все секции по умолчанию */
+    padding: 20px;
+    opacity: 0.85; /* 100% - 15% = 85% видимости */
+}
+
+.project {
+    background: #2a2a2a;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 15px 0;
+    transition: background 0.3s;
+}
+
+.project h3 {
+    color: #ff9900;
+}
+
+.project:hover {
+    background: #444;
+}
+
+.btn {
+    display: inline-block;
+    background: #ff9900;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #e68a00;
+}
+
+.menu {
+    position: fixed; /* Фиксируем позицию меню */
+    bottom: 0; /* Меню должно быть прижато к нижней части экрана */
+    left: 0; /* Меню должно начинаться с левого края */
+    right: 0; /* Меню должно растягиваться до правого края */
+    display: flex;
+    justify-content: space-around; /* Распределяем элементы равномерно */
+    background-color: #333; /* Цвет фона меню */
+    padding: 20px 0; /* Отступы сверху и снизу */
+    z-index: 10; /* Помещаем меню выше других элементов */
+}
+
+
+.menu-item {
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.5s;
+}
+
+.menu-item i {
+    font-size: 40px; /* Размер иконок */
+    transition: transform 0.3s;
+}
+
+.menu-item span {
+    display: none; /* Скрыть текст по умолчанию */
+    font-size: 14px; /* Размер текста */
+}
+
+.menu-item:hover i {
+    transform: scale(0.2); /* Уменьшение иконки */
+}
+
+.menu-item:hover span {
+    display: block; /* Показать текст */
+    opacity: 1;
+}
+
+.menu-item:hover {
+    transform: scale(1.5); /* Увеличение меню при наведении */
+}
+
+@media (max-width: 768px) {
+    .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+.menu-item.active {
+    transform: scale(1.5); /* Увеличение активного меню */
+    color: #ffcc00; /* Цвет текста активного элемента */
+}
+
+.menu-item.active i {
+    transform: scale(0.5); /* Уменьшение иконки активного элемента */
+}
+
+p 
+{
+    margin-top: 10px;  /* Отступ сверху */
+    margin-bottom: 10px;  /* Отступ снизу */
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    animation: fadeIn 0.3s; /* Анимация появления */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    animation: fadeIn 0.3s; /* Анимация появления */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    color: black; /* Заменяем цвет текста на черный */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-content {
+    color: black; /* Заменяем цвет текста на черный */
+    background-color: white; /* Убедитесь, что фон светлый для контраста */
+    padding: 20px; /* Добавляем отступы для лучшего восприятия */
+    border-radius: 8px; /* Скругляем углы для эстетики */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для глубины */
+}
+
+.modal-header h3 {
+    color: black; /* Убедитесь, что заголовки тоже черные */
+}
+
+.modal-body p {
+    color: black; /* Убедитесь, что текст в теле тоже черный */
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #44444; /* Цвет фона */
+    color: white; /* Цвет текста */
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Тень для объемности */
+    transition: all 0.4s ease; /* Плавный переход */
+}
+.btn:hover {
+    background-color: #4444; /* Цвет при наведении */
+    transform: translateY(4px); /* Подъем кнопки при наведении */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); /* Увеличенная тень */
+}
+body {
+    margin: 0;
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://img.freepik.com/premium-vector/cryptocurrency-seamless-pattern-crypto-currency-background-bitcoin-ethereum-ethereum-classic-dash-litecoin-monero-nem-ripple-zcash-vector-illustration_153454-7241.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999; /* Чтобы заставка была поверх всего */
+}
+
+#splash-content {
+    text-align: center;
+}
+
+.symbol {
+    font-size: 100px;
+    color: gold; /* Цвет символа */
+    margin-bottom: 20px; /* Отступ между символом и буквами */
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; /* Эффект свечения */
+    animation: glow 1s infinite alternate; /* Анимация мигания */
+}
+
+.letters {
+    font-size: 48px; /* Уменьшенный размер шрифта для букв */
+    font-weight: bold; /* Жирный шрифт */
+    color: white; /* Цвет букв */
+    display: flex;
+    justify-content: center;
+}
+
+.letters span {
+    display: inline-block; /* Делает буквы блочными элементами для анимации */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Переход для анимации */
+    position: relative; /* Для эффекта молний */
+    transform: translateY(-100px); /* Начальное положение для падения */
+    opacity: 0; /* Начальная непрозрачность */
+    filter: drop-shadow(0 0 5px white); /* Эффект свечения */
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-2px, 2px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    }
+    100% {
+        text-shadow: 0 0 20px white, 0 0 30px white, 0 0 40px white;
+    }
+}
+
+/* Стили для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.4); /* Полупрозрачный фон */
+    border-radius: 12px; /* Закругленные углы */
+}
+
+/* Стили для заголовков столбцов */
+th {
+    padding: 10px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6); /* Серый цвет для заголовков столбцов */
+    font-weight: bold;
+}
+
+/* Для заголовков таблицы */
+th {
+    color: rgba(255, 255, 255, 0.8); /* Светло-белый цвет */
+}
+
+/* Для фона ячеек */
+td {
+    background-color: #4444; /* Светло-белый фон */
+}
+
+/* Логотип криптовалюты перед названием */
+td img {
+    margin-right: 8px; /* Отступ между логотипом и текстом */
+}
+
+/* Эффект при наведении на строку таблицы */
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.crypto-table-container {
+    margin: 5px 5px; /* Уменьшите отступ сверху  и снизу*/
+    border-spacing: 0.2; /* Убираем пространство между ячейками таблицы */
+}
+/* Адаптация таблицы для маленьких экранов */
+@media (max-width: 460px) {
+    .crypto-table th, .crypto-table td {
+        display: block; /* Изменение отображения на блочное */
+        width: 100%; /* Таблица растягивается на весь экран */
+    }
+
+    .crypto-table td {
+        border: none; /* Убираем границы ячеек для мобильных */
+        padding: 8px; /* Увеличиваем отступы для читабельности */
+    }
+}
