@@ -403,3 +403,84 @@ tbody tr:hover {
         padding: 8px; /* Увеличиваем отступы для читабельности */
     }
 }
+/* =============== ДИЗАЙН ДЛЯ КНОПОК ШАПКИ =============== */
+.header-content {
+    display: flex; /* Используем флекс для выравнивания элементов */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+}
+
+.header-button {
+    background-color: #4444; /* Цвет кнопки */
+    color: #ffffff; /* Цвет текста */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: 10px; /* Отступ между логотипом и кнопкой */
+}
+
+.header-button:hover {
+    background: #000; /* Цвет при наведении */
+}
+
+/* МОДАЛЬНОЕ ОКНО ПОДЕЛИТЬСЯ */
+.share-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Зафиксировано на экране */
+    z-index: 1; /* На переднем плане */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включить прокрутку, если нужно */
+    border-radius: 15px; /* Закругление углов */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.shere-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% сверху и центр */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ширина */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.social-buttons {
+    display: flex;                     /* Используем Flexbox для выравнивания кнопок */
+    justify-content: space-around;    /* Пространство между кнопками */
+    flex-wrap: wrap;                  /* Позволяем кнопкам переноситься на новую строку */
+    margin-top: 20px;
+}
+
+.social-button {
+    background-color: #007bff; /* Фирменный цвет кнопки */
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    flex: 1 1 150px; /* Разрешаем кнопкам расширяться и сжиматься, минимальная ширина 150px */
+    margin: 5px; /* Отступ между кнопками */
+}
+
+.social-button:hover {
+    background-color: #0056b3; /* Темнее при наведении */
+}
