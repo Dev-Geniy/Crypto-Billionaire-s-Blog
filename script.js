@@ -804,13 +804,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const symbol = document.querySelector('.symbol');
     let delay = 0;
 
-    // Появление букв с анимацией "падения"
+    // Анимация для каждой буквы
     letters.forEach((letter, index) => {
         setTimeout(() => {
             letter.style.transform = 'translateY(0)'; // Буква падает на своё место
             letter.style.opacity = '1'; // Буква становится видимой
             letter.style.animation = 'glitch 0.5s ease-in-out'; // Эффект глитча
-
         }, delay);
         delay += 300; // Задержка между падениями букв
     });
@@ -822,20 +821,21 @@ document.addEventListener("DOMContentLoaded", function() {
             letter.style.opacity = '0'; // Исчезновение букв
         });
 
-        symbol.style.transform = 'scale(1.5)'; // Увеличение символа перед исчезновением
+        // Символ биткоина резко увеличивается
+        symbol.style.transition = 'transform 1s ease'; // Плавная анимация увеличения
+        symbol.style.transform = 'scale(3)'; // Увеличение символа биткоина до 3x
 
-        // Если фон должен стать белым (по желанию), можно оставить этот код
+        // Переход фона в белый (если нужно)
         splashScreen.style.transition = 'background-color 1s ease';
-        splashScreen.style.backgroundColor = 'white'; // Переход фона в белый
+        splashScreen.style.backgroundColor = 'white'; // Переход в белый фон
 
-        // Показать основной контент после завершения анимации
+        // Скрытие заставки и показ основного контента
         setTimeout(() => {
             splashScreen.style.display = 'none'; // Скрываем заставку
             document.getElementById('main-content').style.display = 'block'; // Показываем основной контент
-        }, 1000); // Скрытие заставки через 1 секунду
-    }, 3000 + delay); // 3 секунды на анимацию букв + задержка
+        }, 1000); // Задержка перед скрытием заставки
+    }, 3000 + delay); // Время до завершения анимации
 });
-
 
 // ============== ТАБЛИЦА КРИПТОАКТИВОВ ==============
 // Функция для отображения данных о криптовалютах в таблице с логотипами
