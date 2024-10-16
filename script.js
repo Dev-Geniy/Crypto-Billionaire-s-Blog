@@ -881,3 +881,25 @@ if (typeof window.ethereum !== 'undefined') {
     console.log('No Ethereum provider detected');
 }
 
+// =============== ПОДЕЛИТЬСЯ ===================
+    const sharePopupButton = document.getElementById("share-popup-button");
+    const shareModal = document.getElementById("share-modal");
+    const closeShareModal = document.getElementById("close-share-modal");
+
+    // Открыть модальное окно для "Поделиться"
+    sharePopupButton.addEventListener("click", function() {
+        shareModal.style.display = "block";
+    });
+
+    // Закрыть модальное окно для "Поделиться"
+    closeShareModal.addEventListener("click", function() {
+        shareModal.style.display = "none";
+    });
+
+    // Закрыть модальное окно при клике вне его
+    window.addEventListener("click", function(event) {
+      
+        if (event.target === shareModal) {
+            shareModal.style.display = "none";
+        }
+    });
