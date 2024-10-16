@@ -62,13 +62,43 @@
         </div>
     </div>
     <div id="main-content" style="display:none;">
-    <header>
-    <div class="logo glitch">Crypto Billionaire's ₿log</div>
+<header>
+ <div class="header-content">
+  <div class="logo glitch">Crypto Billionaire's ₿log</div>
+<!-- Поделиться -->
+   <div>
+     <button class="header-button" id="share-popup-button">
+            <i class="fas fa-share-alt"></i>
+        </button>
+   </div>
+<!-- Политика конфедециальности -->
+   <div><a href="https://www.termsfeed.com/live/e3f37923-20be-40e8-8133-872ffe4e6c69" target="_blank" class="header-button">
+        <i class="fas fa-shield-alt"></i>
+    </a>
+   </div>
+ </div>         
 </header>
-    <main>
+      
+<!-- Модальное окно для "Поделиться" -->
+<div class="share-modal" id="share-modal">
+    <div class="shere-modal-content">
+        <span class="close-button" id="close-share-modal">&times;</span>
+        <h2>Зачем это отправлять друзьям?</h2>
+        <p>Поделившись нашим сайтом, вы помогаете вашим друзьям открыть для себя невероятные возможности в мире криптовалют. Это не только даст им доступ к ценным ресурсам и информации, но и поможет вашему окружению быть в курсе последних трендов и новостей. Благодаря вашей поддержке, мы сможем продолжать развивать наш проект и предоставлять вам больше интересного контента. Спасибо за вашу помощь!</p>
+        <div class="social-buttons">
+    <a href="https://www.instagram.com/?url=https://t.me/Crypto_Billionaires_Blog_Bot" target="_blank" class="social-button"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://t.me/Crypto_Billionaires_Blog_Bot" target="_blank" class="social-button"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="https://twitter.com/share?url=https://t.me/Crypto_Billionaires_Blog_Bot" target="_blank" class="social-button"><i class="fab fa-twitter"></i> Twitter</a>
+    <a href="https://t.me/share/url?url=https://t.me/Crypto_Billionaires_Blog_Bot" target="_blank" class="social-button"><i class="fab fa-telegram-plane"></i> Telegram</a>
+    <a href="https://wa.me/?text=https://t.me/Crypto_Billionaires_Blog_Bot" target="_blank" class="social-button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="viber://forward?text=https://t.me/Crypto_Billionaires_Blog_Bot" target="_blank" class="social-button"><i class="fab fa-viber"></i> Viber</a>
+    </div>
+  </div>
+</div>
+<main>
         <section id="crypto-projects" class="content">
             <h2>Crypto-Проекты для заработка (децентрализованные)</h2>
-          <!-- Данные о Crypto-Проектах для заработка -->
+<!-- Данные о Crypto-Проектах для заработка -->
             <div class="project">
     <h3>1. Zignaly</h3>
     <p>Платформа для копирования сделок и автоматизированной торговли криптовалютами.</p>
